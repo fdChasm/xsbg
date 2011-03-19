@@ -1,0 +1,4 @@
+#!/bin/sh
+cd ~/workspace/xsbg/
+LD_PRELOAD=/usr/lib/mumble/libmumble.so  bin_unix/native_client -q/home/morgan/.sauerbraten -r
+#exec bin_unix/native_client -q/home/morgan/.sauerbraten -r
