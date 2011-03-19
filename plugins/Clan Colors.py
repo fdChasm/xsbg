@@ -63,7 +63,7 @@ class player_clan:
 	def unload(self, players):
 		return True
 		
-player_clan_extension = player_clan("~/.sauerbraten/Clan Colors.conf")
+player_clan_extension = player_clan("~/.sauerbraten/ClanColors.conf")
 		
 extendPlayers("clan_colors", player_clan_extension)
 
