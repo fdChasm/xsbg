@@ -1,4 +1,26 @@
 #!/bin/sh
-cd ~/workspace/xsbg/
-LD_PRELOAD=/usr/lib/mumble/libmumble.so  bin_unix/native_client -q/home/morgan/.sauerbraten -r
-#exec bin_unix/native_client -q/home/morgan/.sauerbraten -r
+MUMBLE=false
+
+if type dirname &> /dev/null; then
+    SB_DATA=`dirname $0`
+else
+    SB_DATA=.
+fi
+
+if ${MUMBLE}; then
+    if type locate &> /dev/null; then
+        MU_LIB=`locate libmumble.so -n 1`
+        if [ ! -n "$MU_LIB" ]; then
+            MUMBLE=false
+        fi
+    else
+        MUMBLE=false
+    fi
+fi
+
+cd ${SB_DATA}
+if ${MUMBLE}; then
+    LD_PRELOAD=${MU_LIB}  bin_unix/native_client -q${HOME}/.sauerbraten -r
+else
+    exec bin_unix/native_client -q${HOME}/.sauerbraten -r
+fi
