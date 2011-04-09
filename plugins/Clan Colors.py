@@ -44,9 +44,9 @@ class player_clan:
 			lines = somelines
 
 			for line in lines:
-
 				if line[0] == '#':
 					pass
+				#recursive parsing allows references to other config files Ad nauseam
 				elif line[0] == '&':
 					self.read_config(line[1:])
 				else:
