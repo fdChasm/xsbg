@@ -1154,8 +1154,8 @@ namespace game
                     if(strcmp(text, d->name))
                     {
                         conoutf("%s is now known as %s", colorname(d), colorname(d, text));
-                        SbPy::triggerEventIntStringString("rename", d->clientnum, d->name, text);
                         copystring(d->name, text, MAXNAMELEN+1);
+                        SbPy::triggerEventIntStringString("rename", d->clientnum, d->name, text);
                     }
                 }
                 break;
