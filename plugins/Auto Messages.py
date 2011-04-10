@@ -64,11 +64,15 @@ def teamkill_callback(event, killercn, killedcn):
 		autosay("Sorry " + killed + "!")
 	elif cn() == killedcn:
 		aRM.register(killercn)
-		
+
+def on_intermission(args):
+	autosay("Good Game.")
 
 registerClientEventHandler("teamkill", teamkill_callback)
 
 registerClientEventHandler("chat", aRM.on_message)
 registerClientEventHandler("teamchat", aRM.on_message)
+
+registerClientEventHandler("Intermission", on_intermission)
 
 print "\tAuto messages plugin now active!"
